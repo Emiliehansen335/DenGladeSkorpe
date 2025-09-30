@@ -1,5 +1,5 @@
 .navbar {
-  height: 70vh;
+  height: 60vh;
   display: flex;
   justify-content: space-between;
   align-items: top;
@@ -14,20 +14,25 @@
 
 .overlay {
   position: absolute;
-  top: 180px;
+  top: 160px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   color: white;
   z-index: 1;
 }
+
+
 img {
+   margin-top: -1px;
   height: 40px;
   width: auto;
 }
 
 .logo2 {
+  margin-top: -5px;
   margin-left: 150px;
+  top: 0;
   height: 50px;
   width: auto;
 }
