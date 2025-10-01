@@ -8,15 +8,28 @@
   color: black;
 }
 
+.kategori {
+    font-family: 'Just Another Hand', cursive;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
 .productCard {
-    border: 1px solid #ddd;
     border-radius: 8px;
     margin: 10px;
     padding: 15px;
     width: 250px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s;
+}
+
+.productCard img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: 10px;
 }
 
 .pizza {
@@ -25,6 +38,6 @@ width: auto;
 }
 
 h3 {
-  font-size: 10px;
+  font-size: 20px;
 }
 

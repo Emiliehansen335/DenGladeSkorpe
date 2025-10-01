@@ -11,13 +11,16 @@ const Dishes = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className={styles.container}>
-      {Array.isArray(dishes) && dishes.length > 0 ? (
-        dishes.map((dish) => <DishesCard key={dish.id} dish={dish} />)
-      ) : (
-        <p>Ingen pizzaer fundet.</p>
-      )}
-    </div>
+    <>
+      <h3 className={styles.kategori}>Vælg Katergori</h3>
+      <div className={styles.container}>
+        {Array.isArray(dishes) && dishes.length > 0 ? (
+          dishes.map((dish) => <DishesCard dish={dish} />)
+        ) : (
+          <p>Ingen pizzaer fundet.</p>
+        )}
+      </div>
+    </>
   );
 };
 

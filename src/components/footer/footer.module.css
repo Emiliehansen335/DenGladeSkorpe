@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #4a4a4a;
+  gap: 30px;
+}
+
+.footerText p {
+  font-family: Just Another Hand, cursive;
+}
+
+.footerText {
+  color: white;
+  font-size: 14px;
+  display: flex;
+  gap: 20px;
+}

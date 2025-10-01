@@ -8,9 +8,15 @@
 }
 
 .storyText {
-    text-align: left;
+    text-align: center;
 }
 
+.storyText h3 {
+    font-family: 'Just Another Hand', cursive;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
 
 
 

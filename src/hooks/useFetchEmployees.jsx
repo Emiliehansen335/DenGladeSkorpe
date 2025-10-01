@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
-const useFetchDishes = () => {
-  const [dishes, setDishes] = useState([]);
+const useFetchEmployees = () => {
+  const [employees, setEmployees] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Get all products
-  const fetchDishes = async () => {
+  // Get all employees
+  const fetchEmployees = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3042/dishes");
+      const response = await fetch("http://localhost:3042/employees");
       const data = await response.json();
-      setDishes(data.data || []);
+      setEmployees(data.data || []);
+      console.log("Fetched employees:", data);
     } catch (error) {
       setError("Der skete en fejl: " + error.message);
     } finally {
@@ -20,15 +21,14 @@ const useFetchDishes = () => {
   };
 
   useEffect(() => {
-    fetchDishes();
+    fetchEmployees();
   }, []);
 
-
   return {
-    dishes,
+    employees,
     error,
     isLoading,
   };
 };
 
-export { useFetchDishes };
+export { useFetchEmployees };

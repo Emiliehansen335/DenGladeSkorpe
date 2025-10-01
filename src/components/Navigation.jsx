@@ -21,9 +21,9 @@ const Navigation = () => {
       }}
     >
       <div className="overlay">
-        <h1>Den</h1>
-        <h2>Glade</h2>
-        <h3>Skorpe</h3>
+        <h3>Den</h3>
+        <h1>Glade</h1>
+        <h2>Skorpe</h2>
       </div>
       <Link to="/">
         <img src="src\assets\logo.png" alt="logo" />
@@ -39,16 +39,13 @@ const Navigation = () => {
           <NavLink to="/">FORSIDE</NavLink>
         </li>
         <li>
-          <NavLink to="./Blog">BLOG</NavLink>
+          <NavLink to="./Personalet">PERSONALET</NavLink>
         </li>
         <li>
-          <NavLink to="./Faq">FAQ</NavLink>
+          <NavLink to="./Kontakt">KONTAKT</NavLink>
         </li>
         <li>
-          <NavLink to="./Contact">KONTAKT</NavLink>
-        </li>
-        <li>
-          <NavLink to="./Backoffice">BACKOFFICE</NavLink>
+          <NavLink to="./Kurv">KURV</NavLink>
         </li>
       </ul>
     </nav>

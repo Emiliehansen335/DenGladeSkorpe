@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./dishesCard.module.css";
 
 const DishesCard = ({ dish }) => {
-  console.log("dish:", dish); // Se præcis hvad du får fra API'et
 
   if (!dish) return null;
 

@@ -22,25 +22,49 @@
   z-index: 1;
 }
 
+.overlay h3 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0;
+}
+.overlay h2 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0;
+}
+.overlay h1 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0;
+}
 
 img {
-   margin-top: -1px;
+  margin-top: 10px;
   height: 40px;
   width: auto;
 }
 
 .logo2 {
-  margin-top: -5px;
-  margin-left: 150px;
+  margin-top: 4px;
+  margin-left: 10px;
   top: 0;
   height: 50px;
+  margin-right: 50px;
   width: auto;
 }
 
 .burger-menu {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1100; /* Højere end nav-links */
+  color: #fff;
+  padding: 0.3em;
   cursor: pointer;
-  font-size: 2rem;
-  color: #ffffff;
+  transition: background 0.2s;
 }
 
 .nav-links {
@@ -48,9 +72,11 @@ img {
   list-style: none;
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   z-index: 200;
-  top: 60px;
+  top: 0;
   left: 0;
   width: 100%;
   padding: 0;
@@ -66,26 +92,34 @@ img {
     text-align: center;
 
     a {
-      color: #ffff;
+      color: #fff;
       text-decoration: none;
-      display: block;
+      display: inline-block; /* Kun underline under teksten */
       position: relative;
       transition: color 0.3s;
+      font-family: "Just Another Hand", cursive;
+      font-size: 20px;
 
-      &:hover {
-        color: #f07232;
-      }
-
+      /* Underline-animation */
       &:after {
         content: "";
         position: absolute;
-        width: 100%;
-        transform: scaleX(0);
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0;
         height: 2px;
         bottom: 0;
         background-color: rgb(255, 252, 251);
-        transform-origin: bottom right;
-        transition: transform 0.3s ease-out;
+        transition: width 0.3s ease-out;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+
+      &:hover:after {
+        width: 100%;
       }
     }
   }
@@ -106,6 +140,7 @@ img {
     position: static;
     width: auto;
     background-color: transparent;
+    height: 40px;
 
     li {
       padding: 0;
