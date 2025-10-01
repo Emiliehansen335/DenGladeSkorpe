@@ -1,0 +1,123 @@
+.kurvContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.kurvTitle {
+  font-family: "Just Another Hand", cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4a4a4a;
+}
+
+.emptyCart {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.cartItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.cartItem:hover {
+  background: #f9f9f9;
+}
+
+.cartItem:last-child {
+  border-bottom: none;
+}
+
+.itemImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.itemDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.itemSize {
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.itemPrice {
+  font-weight: bold;
+  color: #4a4a4a;
+  font-size: 1.1rem;
+}
+
+.totalSection {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid #4a4a4a;
+  text-align: right;
+}
+
+.totalPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.checkoutButton {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background: #4a4a4a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checkoutButton:hover {
+  background: #222;
+}
+
+@media (max-width: 600px) {
+  .kurvContainer {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .cartItem {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .itemImage {
+    margin-bottom: 0.5rem;
+  }
+}

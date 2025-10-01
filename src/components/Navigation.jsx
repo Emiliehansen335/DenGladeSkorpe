@@ -3,6 +3,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
 import { Link, NavLink } from "react-router-dom";
 import headerImg from "../assets/headerImg.png";
+import billede from "../assets/basket_icon.png";
+import logo from "../assets/logo.png";
+
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +29,10 @@ const Navigation = () => {
         <h2>Skorpe</h2>
       </div>
       <Link to="/">
-        <img src="src\assets\logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
       </Link>
       <Link to="/">
-        <img className="logo2" src="src\assets\basket_icon.png" alt="logo" />
+        <img className="logo2" src={billede} alt="logo" />
       </Link>
       <div className="burger-menu" onClick={toggleMenu}>
         {isOpen ? <IoClose size={30} /> : <GiHamburgerMenu size={30} />}

@@ -1,9 +1,8 @@
 .sectionEmployee {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* To kolonner */
-  gap: 10px;
+  gap: 3px;
   justify-items: center;
-  padding: 10px;
   box-sizing: border-box;
 }
 
@@ -16,7 +15,7 @@
 }
 
 .employeeCard {
-  max-width: 220px;
+  max-width: 180px;
   min-width: 180px;
   text-align: center;
   transition: transform 0.2s;
@@ -24,7 +23,7 @@
 }
 
 .employeeCard img {
-  width: 100px;
+  width: 110px;
   height: 120px;
   object-fit: cover;
   margin-bottom: 10px;
@@ -36,7 +35,7 @@
 }
 
 .employeecontainer {
-    padding: 50px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     display: flex;
   flex-direction: column;
     align-items: center;

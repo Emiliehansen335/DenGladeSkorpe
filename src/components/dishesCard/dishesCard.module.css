@@ -1,43 +1,62 @@
-
 .container {
-    display: flex;
-    flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  justify-items: center;
   background-color: white;
   color: black;
 }
 
+
 .kategori {
-    font-family: 'Just Another Hand', cursive;
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 20px;
-    font-weight: 400;
-  }
+  font-family: "Just Another Hand", cursive;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
 
 .productCard {
-    border-radius: 8px;
-    margin: 10px;
-    padding: 15px;
-    width: 250px;
-    text-align: center;
-    transition: transform 0.2s;
+  border-radius: 8px;
+  width: 100px;
+  text-align: center;
+  transition: transform 0.2s;
+  position: relative; /* Gør det muligt at placere tekst absolut */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .productCard img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   margin-bottom: 10px;
+  display: block;
+}
+
+.cardTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 20px;
+  pointer-events: none;
+  width: max-content;
+  max-width: 200%;
+  text-align: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .pizza {
-height: 0px;
-width: auto;
+  height: 0px;
+  width: auto;
 }
 
-h3 {
-  font-size: 20px;
+.productCard h3 {
+  font-size: 12px;
 }
-
