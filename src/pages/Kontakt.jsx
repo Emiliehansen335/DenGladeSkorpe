@@ -5,7 +5,6 @@ const Kontakt = () => {
   return (
     <div>
       <ContactForm/>
-    <Footer/>
     </div>
   );
 };

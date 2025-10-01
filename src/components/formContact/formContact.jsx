@@ -27,6 +27,15 @@ const ContactForm = () => {
 
   return (
     <>
+      <div className={styles.textContact}>
+        <h1 className={styles.contacth1}>
+          Har du spørgsmål eller ønsker du at bestille din favoritpizza?
+        </h1>
+        <p className={styles.contactp}>
+          Udfyld formularen herunder, så vender vi hurtigt tilbage til dig. Vi
+          glæder os til at høre fra dig!
+        </p>
+      </div>
       <div className={styles.formContainer}>
         <form onSubmit={handleSubmitContact} className={styles.form}>
           {/* Navn */}
@@ -67,7 +76,7 @@ const ContactForm = () => {
             ></textarea>
           </div>
           <button className={styles.submitbtn} type="submit">
-            Send 
+            Send
           </button>
         </form>
 

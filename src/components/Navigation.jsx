@@ -6,7 +6,6 @@ import headerImg from "../assets/headerImg.png";
 import billede from "../assets/basket_icon.png";
 import logo from "../assets/logo.png";
 
-
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,6 +48,11 @@ const Navigation = () => {
         </li>
         <li>
           <NavLink to="./Kurv">KURV</NavLink>
+        </li>
+        <li>
+          <NavLink to="./backoffice">
+            BACKOFFICE
+          </NavLink>
         </li>
       </ul>
     </nav>

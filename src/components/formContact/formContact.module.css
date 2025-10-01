@@ -7,10 +7,34 @@
     justify-content: center;
     text-align: center;
     margin: auto;
-    margin-top: 20px;
-    width: 90vw;
+      background-color: #f6f0ee;
+      padding-block: 15px;
 }
 
+.textContact {
+  margin-block: 20px;
+   display: flex;
+   gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contacth1 {
+    font-family: "Just Another Hand", cursive;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 400;
+       width: 80%;
+}
+
+.contactp {
+    font-size: 18px;
+    max-width: 600px;
+    margin-bottom: 20px;
+       width: 80%;
+}
 /* Input og textarea styling */
 .inputGroup input {
     height: 40px;

@@ -8,17 +8,16 @@ import Personalet from "./pages/Personalet";
 import DishesDetail from "./pages/DishesDetail";
 import { CartProvider } from "./context/CartContext";
 import Kurv from "./pages/Kurv";
+import Backoffice from "./pages/Backoffice";
 
 function App() {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
     { path: "/Kontakt", element: <Kontakt /> },
     { path: "/Personalet", element: <Personalet /> },
-    {
-      path: "/dishes/:id",
-      element: <DishesDetail />,
-    },
+    { path: "/dishes/:id", element: <DishesDetail /> },
     { path: "/kurv", element: <Kurv /> },
+    { path: "/backoffice/*", element: <Backoffice /> }, // Vigtigt: /* for nested routes
   ]);
 
   return (
