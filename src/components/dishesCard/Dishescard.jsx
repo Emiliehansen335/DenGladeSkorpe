@@ -6,7 +6,7 @@ const DishesCard = ({ dish }) => {
   if (!dish) return null;
 
   return (
-    <Link to={`/dishes/${dish.id}`} className={styles.productCard}>
+    <Link to={`/dishes/${dish._id}`} className={styles.productCard}>
       <img className="pizza" src={dish.image} alt={dish.title} />
       <h3 className={styles.cardTitle}>{dish.title}</h3>
     </Link>

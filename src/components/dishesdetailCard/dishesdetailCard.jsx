@@ -1,42 +1,52 @@
-import React, { useState } from "react";
-import { useCart } from "../../context/CartContext";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 import styles from "./dishesdetailCard.module.css";
 
 const DishesDetailCard = ({ dish }) => {
-  if (!dish) return null;
-
+  const [selectedSize, setSelectedSize] = useState("");
   const { addToCart } = useCart();
-  const navigate = useNavigate();
 
-  // Få alle størrelser fra price-objektet
-  const sizes =
-    dish.price && typeof dish.price === "object" ? Object.keys(dish.price) : [];
-  // Sæt første størrelse som default valgt
-  const [selectedSize, setSelectedSize] = useState(sizes[0] || "");
-
-  const handleChange = (e) => setSelectedSize(e.target.value);
+  useEffect(() => {
+    if (dish) {
+      const sizes =
+        dish.price && typeof dish.price === "object"
+          ? Object.keys(dish.price)
+          : [];
+      setSelectedSize(sizes[0] || "");
+    }
+  }, [dish]);
 
   const handleAddToCart = () => {
+    if (!dish || !selectedSize) return;
+
     const item = {
-      id: dish.id,
+      id: dish._id,
       title: dish.title,
       image: dish.image,
       size: selectedSize,
-      price: dish.price[selectedSize], // kun prisen for valgt størrelse
-      // tilføj evt. flere felter hvis nødvendigt
+      price: dish.price[selectedSize],
     };
     addToCart(item);
-    navigate("/kurv");
   };
+
+  const handleChange = (e) => setSelectedSize(e.target.value);
+
+  if (!dish) return <p>Ingen ret data</p>;
+
+  const sizes =
+    dish.price && typeof dish.price === "object" ? Object.keys(dish.price) : [];
 
   return (
     <div className={styles.productdetailCard}>
       <div className={styles.imgcontainer}>
-        <img className={styles.pizza} src={dish.image} alt={dish.title} />
+        <img src={dish.image} alt={dish.title} />
       </div>
-      <section className={styles.ingredientsSection}>
-        <h2 className={styles.cardTitle}>{dish.title}</h2>
+
+      <h2 className={styles.cardTitle}>{dish.title}</h2>
+
+      <div className={styles.ingredientsSection}>
+        <h3>Ingredienser</h3>
         <ul className={styles.ingredients}>
           {Array.isArray(dish.ingredients) && dish.ingredients.length > 0 ? (
             dish.ingredients.map((ingredient, idx) => (
@@ -47,18 +57,14 @@ const DishesDetailCard = ({ dish }) => {
               </li>
             ))
           ) : (
-            <li>Ingen ingredienser</li>
+            <li>Ingen ingredienser tilgængelige</li>
           )}
         </ul>
-      </section>
+      </div>
 
       <section className={styles.section}>
-        <h3>Vælg Størrelse</h3>
-        <select
-          className={styles.options}
-          value={selectedSize}
-          onChange={handleChange}
-        >
+        <h1>Vælg Størrelse</h1>
+        <select value={selectedSize} onChange={handleChange}>
           {sizes.map((size) => (
             <option key={size} value={size}>
               {size.charAt(0).toUpperCase() + size.slice(1)}
@@ -71,8 +77,8 @@ const DishesDetailCard = ({ dish }) => {
         <h1>Pris</h1>
         <p className={styles.price}>
           {selectedSize && dish.price[selectedSize]
-            ? `${dish.price[selectedSize]}, -`
-            : "Ingen pris"}
+            ? `${dish.price[selectedSize]} kr`
+            : "Vælg en størrelse"}
         </p>
       </section>
 

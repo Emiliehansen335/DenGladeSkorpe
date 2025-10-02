@@ -91,7 +91,9 @@ const Dishes = () => {
       </div>
       <div className={styles.container}>
         {Array.isArray(filteredDishes) && filteredDishes.length > 0 ? (
-          filteredDishes.map((dish) => <DishesCard key={dish.id} dish={dish} />)
+          filteredDishes.map((dish) => (
+            <DishesCard key={dish._id || dish.id} dish={dish} />
+          ))
         ) : (
           <p>Ingen pizzaer fundet.</p>
         )}

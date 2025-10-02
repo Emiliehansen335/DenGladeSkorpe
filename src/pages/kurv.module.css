@@ -106,6 +106,73 @@
   background: #222;
 }
 
+.successMessage {
+  text-align: center;
+  color: #28a745;
+  font-size: 1.2rem;
+  margin: 2rem 0;
+}
+
+.errorMessage {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.checkoutButton:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.checkoutButton:disabled:hover {
+  background: #6c757d;
+  transform: none;
+}
+
+.commentSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.commentLabel {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.commentTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.commentTextarea:focus {
+  outline: none;
+  border-color: #4a4a4a;
+  box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.1);
+}
+
+.commentTextarea::placeholder {
+  color: #999;
+}
+
+.characterCount {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Responsive design */
 @media (max-width: 600px) {
   .kurvContainer {
     margin: 1rem;
@@ -119,5 +186,10 @@
 
   .itemImage {
     margin-bottom: 0.5rem;
+  }
+
+  .commentSection {
+    margin: 1rem 0;
+    padding: 1rem;
   }
 }

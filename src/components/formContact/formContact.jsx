@@ -12,6 +12,12 @@ const ContactForm = () => {
   const [showModal, setShowModal] = useState(false);
   const { createContact } = useFetchContact();
 
+  const resetForm = () => {
+    setName("");
+    setSubject("");
+    setDescription("");
+  };
+
   const handleSubmitContact = async (event) => {
     event.preventDefault();
 
@@ -20,9 +26,14 @@ const ContactForm = () => {
       let response = await createContact({ name, subject, description });
       console.log("Tilmelding succesfuld:", response);
       setShowModal(true);
+      resetForm(); // Reset formularen efter succesfuld indsendelse
     } catch (error) {
       console.error("Fejl ved tilmelding:", error);
     }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -40,7 +51,7 @@ const ContactForm = () => {
         <form onSubmit={handleSubmitContact} className={styles.form}>
           {/* Navn */}
           <div className={styles.inputGroup}>
-            <label htmlFor="">Navn</label>
+            <label htmlFor="name">Navn</label>
             <input
               id="name"
               type="text"
@@ -53,7 +64,7 @@ const ContactForm = () => {
 
           {/* Emne */}
           <div className={styles.inputGroup}>
-            <label htmlFor="">Emne</label>
+            <label htmlFor="subject">Emne</label>
             <input
               id="subject"
               type="text"
@@ -66,7 +77,7 @@ const ContactForm = () => {
 
           {/* Beskrivelse */}
           <div className={styles.inputGroup}>
-            <label htmlFor="">Beskrivelse</label>
+            <label htmlFor="description">Beskrivelse</label>
             <textarea
               id="description"
               value={description}
@@ -85,10 +96,7 @@ const ContactForm = () => {
             <div className={styles.modal}>
               <h2>Tak for din besked, {name}!</h2>
               <p>Vi vender tilbage hurtigst muligt.</p>
-              <button
-                onClick={() => setShowModal(false)}
-                className={styles.modalButton}
-              >
+              <button onClick={handleCloseModal} className={styles.modalButton}>
                 Luk
               </button>
             </div>
