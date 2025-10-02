@@ -6,8 +6,20 @@ const Kurv = () => {
   const { cart, clearCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [orderStatus, setOrderStatus] = useState(null);
-  const [comment, setComment] = useState(""); // Tilføjet state for kommentar
+  const [comment, setComment] = useState("");
 
+  // Gruppér items for at tælle antal
+  const groupedCart = cart.reduce((acc, item) => {
+    const key = `${item.id}-${item.size}-${item.price}`;
+    if (acc[key]) {
+      acc[key].quantity += 1;
+    } else {
+      acc[key] = { ...item, quantity: 1 };
+    }
+    return acc;
+  }, {});
+
+  const cartItems = Object.values(groupedCart);
   const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
   const handleCheckout = async () => {
@@ -22,7 +34,7 @@ const Kurv = () => {
           dish: item.id,
         })),
         totalPrice: totalPrice,
-        comment: comment || "Ingen specielle ønsker", // Bruger brugerens kommentar
+        comment: comment || "Ingen specielle ønsker",
         shipped: false,
       };
 
@@ -55,7 +67,7 @@ const Kurv = () => {
       console.log("Ordre ID:", result.data?._id || result._id);
 
       setOrderStatus("success");
-      setComment(""); // Nulstil kommentar
+      setComment("");
       clearCart();
     } catch (error) {
       console.error("Fejl ved checkout:", error);
@@ -89,57 +101,62 @@ const Kurv = () => {
         <p className={styles.emptyCart}>Kurven er tom.</p>
       ) : (
         <>
-          <ul className={styles.cartItems}>
-            {cart.map((item, idx) => (
-              <li key={idx} className={styles.cartItem}>
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={styles.itemImage}
-                />
-                <div className={styles.itemDetails}>
-                  <div className={styles.itemTitle}>{item.title}</div>
-                  <div className={styles.itemSize}>Størrelse: {item.size}</div>
-                </div>
-                <div className={styles.itemPrice}>{item.price} kr</div>
-              </li>
+          <div className={styles.cartItemsContainer}>
+            {cartItems.map((item, idx) => (
+              <ul key={idx} className={styles.cartItemList}>
+                <li className={styles.cartItemWrapper}>
+                  <div className={styles.cartItems}>
+                    <div className={styles.itemQuantity}>{item.quantity}x</div>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={styles.itemImage}
+                    />
+                    <div className={styles.itemTitle}>{item.title}</div>
+                  </div>
+                  <div className={styles.itemInfo}>
+                    <div className={styles.itemSize}>
+                      <a href="">Størrelse:</a> {item.size}
+                    </div>
+                    <div className={styles.itemPrice}>
+                      <a href="">Pris:</a> {item.price} kr{" "}
+                      {item.quantity > 1 &&
+                        `(${item.price * item.quantity} kr total)`}
+                    </div>
+                  </div>
+                </li>
+              </ul>
             ))}
-          </ul>
+          </div>
 
-          {/* Tilføjet kommentar sektion */}
+          <div className={styles.totalSection}>
+            <div className={styles.totalPrice}>I alt: {totalPrice},- </div>
+          </div>
+
           <div className={styles.commentSection}>
-            <label htmlFor="orderComment" className={styles.commentLabel}>
-              Specielle ønsker (valgfrit):
-            </label>
             <textarea
               id="orderComment"
               className={styles.commentTextarea}
               value={comment}
               onChange={(e) => setComment(e.target.value)}
-              placeholder="F.eks. ingen løg, ekstra ost, leveringstid..."
+              placeholder="Kommentar til ordren"
               rows={3}
               maxLength={250}
             />
-            <div className={styles.characterCount}>
-              {comment.length}/250 tegn
-            </div>
           </div>
 
-          <div className={styles.totalSection}>
-            <div className={styles.totalPrice}>I alt: {totalPrice},- </div>
-            <button
-              className={styles.checkoutButton}
-              onClick={handleCheckout}
-              disabled={isLoading}
-            >
-              {isLoading ? "Behandler..." : "Gå til betaling"}
-            </button>
-            {orderStatus === "error" && (
-              <p className={styles.errorMessage}>
-                Fejl ved oprettelse af ordre. Prøv igen.
-              </p>
-            )}
-          </div>
+          <button
+            className={styles.checkoutButton}
+            onClick={handleCheckout}
+            disabled={isLoading}
+          >
+            {isLoading ? "Behandler..." : "Gå til betaling"}
+          </button>
+          {orderStatus === "error" && (
+            <p className={styles.errorMessage}>
+              Fejl ved oprettelse af ordre. Prøv igen.
+            </p>
+          )}
         </>
       )}
     </div>
