@@ -7,6 +7,7 @@ const Kurv = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [orderStatus, setOrderStatus] = useState(null);
   const [comment, setComment] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   // Gruppér items for at tælle antal
   const groupedCart = cart.reduce((acc, item) => {
@@ -67,6 +68,7 @@ const Kurv = () => {
       console.log("Ordre ID:", result.data?._id || result._id);
 
       setOrderStatus("success");
+      setShowModal(true); // Vis modal ved success
       setComment("");
       clearCart();
     } catch (error) {
@@ -77,22 +79,10 @@ const Kurv = () => {
     }
   };
 
-  if (orderStatus === "success") {
-    return (
-      <div className={styles.kurvContainer}>
-        <h2 className={styles.kurvTitle}>Tak for din bestilling!</h2>
-        <p className={styles.successMessage}>
-          Din ordre er modtaget og bliver behandlet.
-        </p>
-        <button
-          className={styles.checkoutButton}
-          onClick={() => setOrderStatus(null)}
-        >
-          Lav ny bestilling
-        </button>
-      </div>
-    );
-  }
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setOrderStatus(null);
+  };
 
   return (
     <div className={styles.kurvContainer}>
@@ -158,6 +148,28 @@ const Kurv = () => {
             </p>
           )}
         </>
+      )}
+
+      {/* Modal */}
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div
+            className={styles.modal}
+            style={{
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6)), url(/src/assets/ananas.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <button onClick={handleCloseModal} className={styles.modalButton}>
+              X
+            </button>
+            <div className={styles.modalContent}>
+              <h2>Tak for din bestilling!</h2>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

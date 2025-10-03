@@ -18,3 +18,17 @@
   display: flex;
   gap: 20px;
 }
+
+@media (min-width: 801px) {
+  .footer {
+    padding: 3rem 2rem;
+  }
+
+  .footerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

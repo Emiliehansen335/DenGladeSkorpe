@@ -1,67 +1,64 @@
-
-
 .formContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: auto;
-      background-color: #f6f0ee;
-      padding-block: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  background-color: #f6f0ee;
+  padding-block: 15px;
 }
 
 .textContact {
   margin-block: 20px;
-   display: flex;
-   gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .contacth1 {
-    font-family: "Just Another Hand", cursive;
-    font-size: 30px;
-    margin-bottom: 10px;
-    font-weight: 400;
-       width: 80%;
+  font-family: "Just Another Hand", cursive;
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  width: 80%;
 }
 
 .contactp {
-    font-size: 18px;
-    max-width: 600px;
-    margin-bottom: 20px;
-       width: 80%;
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 20px;
+  width: 80%;
 }
 /* Input og textarea styling */
 .inputGroup input {
-    height: 40px;
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #000000 ;
-    background-color: transparent;
-    color: #000000;
-    font-size: 16px;
+  height: 40px;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #000000;
+  font-size: 16px;
 }
 
 .inputGroup textarea {
-   height: 60px;
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    background-color: transparent;
-    color: #000000;
-    font-size: 16px;
-      height: 160px;
-       border: 1px solid #000000 ;
+  height: 60px;
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  font-size: 16px;
+  height: 160px;
+  border: 1px solid #000000;
 }
-
 
 .submitbtn {
   background: #4a4a4a;
@@ -80,53 +77,118 @@
 }
 
 label {
-    display: block;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 18px;
-    color: rgb(0, 0, 0);
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
 }
 
 .modalOverlay {
-    background: rgba(0, 0, 0, 0.5); 
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 1000;
+  background: none;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.785);
+  height: 30%;
+  width: 100%;
+}
+
+.modalContent h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modalContent p {
+  margin: 0;
+  color: #666;
+}
+
+.modal h2 {
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Media query for skærme større end 800px */
+@media (min-width: 801px) {
+  .formContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
   }
-  
-  .modal {
-    padding: 40px 30px;
-    border-radius: 0px;
-    border: 1px solid grey;
+
+
+
+  .textContact {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
   }
-  
-  .modal h2 {
-    color: white;
-    margin-bottom: 10px;
+
+  .contacth1 {
+    font-size: 2.5rem;
   }
-  
-  .modal p {
-    color: white;
-    margin-bottom: 20px;
+
+  .contactp {
+    font-size: 1.2rem;
   }
-  
-  .modalButton {
-    background-color: transparent;
-    color: #fff;
-    padding: 12px 64px;
-    border-radius: 0px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .modal {
+    max-width: 500px;
   }
-  
-  .modalButton:hover {
-    background-color: #555;
+
+  .modalContent {
+    padding: 2rem;
   }
-  
+}

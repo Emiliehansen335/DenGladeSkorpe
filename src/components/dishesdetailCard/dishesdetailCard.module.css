@@ -9,12 +9,12 @@
 }
 
 .ingredientsSection {
-    padding-block: 20px;
+  padding-block: 20px;
   background-color: #f6f0ee;
   width: 200vw;
 }
-.cardTitle{
-    font-family: "Just Another Hand", cursive;
+.cardTitle {
+  font-family: "Just Another Hand", cursive;
   color: white;
   font-size: 40px;
   text-align: center;
@@ -36,18 +36,17 @@
   margin-bottom: 1rem;
 }
 
-
 .section h1 {
   font-size: 30px;
   text-align: center;
-   font-weight: 400;
+  font-weight: 400;
 }
 
 .productdetailCard .price {
   list-style: none;
- font-size: 30px;
+  font-size: 30px;
   text-align: center;
-   font-weight: 400;
+  font-weight: 400;
 }
 
 .addButton {
@@ -82,5 +81,7 @@
   border: 1px solid #ccc;
   margin-left: 0.5em;
   background-color: #f6f0ee;
-    width: 300px;
+  width: 300px;
 }
+
+

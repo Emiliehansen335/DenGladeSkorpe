@@ -1,23 +1,49 @@
 .wrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 20px 20px 20px;
-    background-color: #ffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px 20px 20px;
+  background-color: #ffff;
 }
 
 .storyText {
-    text-align: center;
+  text-align: center;
 }
 
 .storyText h3 {
-    font-family: 'Just Another Hand', cursive;
-    font-size: 30px;
-    font-weight: 400;
-    margin-bottom: 20px;
+  font-family: "Just Another Hand", cursive;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 20px;
 }
 
+/* Media query for skærme større end 800px */
+@media (min-width: 801px) {
+  .wrapper {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 50px 20px 20px 20px;
+  }
 
+  .storyText {
+    text-align: center;
+  }
+  .storyText h3 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
 
+  .storyText p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
 
+ 
+}

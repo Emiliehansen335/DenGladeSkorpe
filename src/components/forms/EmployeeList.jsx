@@ -1,7 +1,7 @@
 import { useFetchEmployeesTools } from "../../hooks/useFetchEmployeesTools";
 import styles from "./EmployeeList.module.css";
 
-const EmployeeList = ({ onEdit, onCreateNew }) => {
+const EmployeeList = ({ onEdit }) => {
   const { employees, deleteEmployee, isLoading, error } =
     useFetchEmployeesTools();
 

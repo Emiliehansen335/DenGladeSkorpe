@@ -7,7 +7,6 @@
   color: black;
 }
 
-
 .kategori {
   font-family: "Just Another Hand", cursive;
   text-align: center;
@@ -59,4 +58,39 @@
 
 .productCard h3 {
   font-size: 12px;
+}
+
+/* Media query for skærme større end 800px */
+@media (min-width: 825px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .kategori {
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .productCard {
+    width: 150px;
+  }
+
+  .productCard img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+
+  .cardTitle {
+    font-size: 24px;
+    padding: 6px 16px;
+  }
+
+  .productCard h3 {
+    font-size: 16px;
+  }
 }

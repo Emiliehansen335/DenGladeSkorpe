@@ -4,7 +4,7 @@ import ContactForm from "../components/formContact/formContact";
 const Kontakt = () => {
   return (
     <div>
-      <ContactForm/>
+      <ContactForm headerImg="/src/assets/ananas.png" />
     </div>
   );
 };

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 1.5rem;
   justify-items: center;
-  background-color: #F6F0EE;
+  background-color: #f6f0ee;
   padding-block: 60px;
 }
 
@@ -39,4 +39,29 @@
   border-radius: 6px;
   width: max-content;
   max-width: 90%;
+}
+
+/* Media query for skærme større end 800px */
+@media (min-width: 801px) {
+  .categoryButtons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    padding: 80px 2rem;
+  }
+
+  .categoryButton {
+    width: 330px;
+    height: 100px;
+  }
+
+
+  .categoryButtonText {
+    font-size: 26px;
+    padding: 6px 10px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      2px 2px 0 #000;
+  }
+
 }

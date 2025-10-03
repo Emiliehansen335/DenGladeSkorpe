@@ -5,11 +5,12 @@ import { IoMdMail } from "react-icons/io";
 import { useFetchContact } from "../../hooks/useFetchContact";
 import styles from "./formContact.module.css";
 
-const ContactForm = () => {
+const ContactForm = ({ headerImg }) => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [submittedName, setSubmittedName] = useState(""); // Tilføjet ny state
   const { createContact } = useFetchContact();
 
   const resetForm = () => {
@@ -25,6 +26,8 @@ const ContactForm = () => {
       //kalder på createContact for at sende info videre
       let response = await createContact({ name, subject, description });
       console.log("Tilmelding succesfuld:", response);
+
+      setSubmittedName(name); // Gem navn før reset
       setShowModal(true);
       resetForm(); // Reset formularen efter succesfuld indsendelse
     } catch (error) {
@@ -93,12 +96,24 @@ const ContactForm = () => {
 
         {showModal && (
           <div className={styles.modalOverlay}>
-            <div className={styles.modal}>
-              <h2>Tak for din besked, {name}!</h2>
-              <p>Vi vender tilbage hurtigst muligt.</p>
+            <div
+              className={styles.modal}
+              style={{
+                backgroundImage: headerImg
+                  ? `linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6)), url(${headerImg})`
+                  : "linear-gradient(135deg, #dddee0ff 0%, #f0ebf5ff 100%)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            >
               <button onClick={handleCloseModal} className={styles.modalButton}>
-                Luk
+                X
               </button>
+              <div className={styles.modalContent}>
+                <h2>Tak for din besked {submittedName}!</h2>
+                <p>Vi vender tilbage hurtigst muligt.</p>
+              </div>
             </div>
           </div>
         )}
