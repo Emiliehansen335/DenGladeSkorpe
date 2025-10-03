@@ -4,7 +4,8 @@
   margin-bottom: 1.5rem;
   justify-items: center;
   background-color: #f6f0ee;
-  padding-block: 60px;
+  padding-block: 20px;
+  height: 100%;
 }
 
 .categoryButton {
@@ -41,14 +42,20 @@
   max-width: 90%;
 }
 
+.categoryButtons button {
+ height: 130px;
+  width: 120px;
+}
+
 /* Media query for skærme større end 800px */
 @media (min-width: 801px) {
   .categoryButtons {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto 2rem auto;
-    padding: 80px 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    margin-bottom: 2rem;
   }
 
   .categoryButton {

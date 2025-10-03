@@ -55,8 +55,8 @@ const Dishes = () => {
                 src={categoryMap[cat]}
                 alt={cat}
                 style={{
-                  width: 94,
-                  height: 94,
+                  width: 120,
+                  height: 120,
                   objectFit: "cover",
                 }}
               />
@@ -78,7 +78,7 @@ const Dishes = () => {
                 padding: "4px 12px",
                 borderRadius: "6px",
                 width: "max-content",
-                maxWidth: "90%",
+                maxWidth: "100%",
                 zIndex: 2,
                 textDecoration: "none",
               }}

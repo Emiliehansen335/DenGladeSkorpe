@@ -141,6 +141,7 @@ img {
     width: auto;
     background-color: transparent;
     height: 40px;
+    margin-top: 30px;
 
     li {
       padding: 0;
@@ -148,7 +149,66 @@ img {
 
       a {
         color: rgb(253, 252, 252);
+          font-size: 30px;
       }
     }
   }
+
+  .navbar {
+  height: 80vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+  padding: 1rem 2rem;
+  box-shadow: none; /* Fjern evt. skygge */
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+  
+.overlay {
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+.overlay h3 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 60px;
+  margin: 0;
+}
+.overlay h2 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 60px;
+  margin: 0;
+}
+.overlay h1 {
+  font-family: "Just Another Hand", cursive;
+  font-weight: 400;
+  font-size: 70px;
+  margin: 0;
+}
+
+img {
+  margin-top: 10px;
+  height: 80px;
+  width: auto;
+}
+
+.logo2 {
+  margin-top: 4px;
+  margin-left: 10px;
+  top: 0;
+  height: 95px;
+  margin-right: 50px;
+  width: auto;
+}
 }
