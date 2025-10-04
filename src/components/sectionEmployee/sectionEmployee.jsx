@@ -24,7 +24,7 @@ const Employees = () => {
       <div className={styles.sectionEmployee}>
         {Array.isArray(employees) && employees.length > 0 ? (
           employees.map((employee) => (
-            <EmployeeCard  employee={employee} />
+            <EmployeeCard key={employee._id} employee={employee} />
           ))
         ) : (
           <p>Ingen medarbejdere fundet.</p>

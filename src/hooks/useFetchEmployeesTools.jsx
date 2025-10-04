@@ -65,13 +65,13 @@ const useFetchEmployeesTools = () => {
   };
 
   // SLET MEDARBEJDER
-  const deleteEmployee = async (params) => {
-    await fetch(`http://localhost:3042/employee/${params}`, {
+  const deleteEmployee = async (id) => {
+    await fetch(`http://localhost:3042/employee/${id}`, {
       method: "DELETE",
     });
 
     /* Filter all the employees without the matching ID. */
-    const filteredArray = employees.filter((emp) => emp._id !== params);
+    const filteredArray = employees.filter((emp) => emp._id !== id);
 
     setEmployees(filteredArray);
   };
